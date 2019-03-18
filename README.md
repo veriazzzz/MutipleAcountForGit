@@ -47,7 +47,8 @@ User 　　用户名
 
 Host 的名字可以取为自己喜欢的名字，不过这个会影响 git 相关命令，例如：
 Host mygithub 这样定义的话，命令如下，即 git@后面紧跟的名字改为 mygithub
-git clone git@mygithub:PopFisher/AndroidRotateAnim.git
+
+<pre>git clone git@mygithub:PopFisher/AndroidRotateAnim.git</pre>
 
 配置文件如下：
 
