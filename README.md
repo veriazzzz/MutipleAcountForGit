@@ -6,35 +6,44 @@
 ### 1.生成并部署 SSH key
 
 安装好 Git 客户端之后，打开 git bash,输入以下命令生成 user1 的 ssh key
-ssh-keygen -t rsa -C "user1@email.com"；
+
+<pre>ssh-keygen -t rsa -C "user1@email.com"；</pre>
 
 在当前用户的.ssh 目录下会生成 id_rsa 私钥文件和 id_rsa.pub 公钥文件，将 id_rsa 文件中的内容复制并添加到 github 账户（setting->profile->ssh key）。然后在 git bash 中输入一下命令测试该用户的 SSH 密钥是否生效。
 
-ssh -T git@github.com
+<pre>ssh -T git@github.com</pre>
 
-若连接成功则提示 Hi user1! You've successfully authenticated, but GitHub does not provide shell access.
+若连接成功则提示 <pre>Hi user1! You've successfully authenticated, but GitHub does not provide shell access.</pre>
 注意:该命令仅限于文件名为 id_rsa 的密钥。
 
 接着生成 user2 的密钥，此处不能再使用 id_rsa 的文件名，否则会覆盖之前的密钥文件。
-ssh-keygen -t rsa -f ~/.ssh/id_rsa2 -C "user2@email.com"
+
+<pre>ssh-keygen -t rsa -f ~/.ssh/id_rsa2 -C "user2@email.com"</pre>
+
 再将 user2 的公钥文件添加至 github 中。
 
 测试 user2 的 ssh 连接时需要指定密钥文件：
 
-ssh -T git@github.com -i ~/.ssh/id_rsa2
+<pre>ssh -T git@github.com -i ~/.ssh/id_rsa2</pre>
 
-也可以使用 ssh agent 添加密钥后进行测试。因为系统默认只读取 id_rsa，为了让 ssh 识别新的私钥，可以使用 ssh-agent 手动添加私钥：  
+也可以使用 ssh agent 添加密钥后进行测试。因为系统默认只读取 id_rsa，为了让 ssh 识别新的私钥，可以使用 ssh-agent 手动添加私钥：
+
+<pre> 
 ssh-agent bash
 ssh-add ~/.ssh/id_rsa2
+</pre>
 
 ### 2.配置 config 文件
 
 在.ssh 目录下创建一个 config 文本文件，每个账号配置一个 Host 节点。主要配置项说明：
+
+<pre>
 Host 　　主机别名
 HostName 　　服务器真实地址
 IdentityFile 　　私钥文件路径
 PreferredAuthentications 　　认证方式
 User 　　用户名
+</pre>
 
 Host 的名字可以取为自己喜欢的名字，不过这个会影响 git 相关命令，例如：
 Host mygithub 这样定义的话，命令如下，即 git@后面紧跟的名字改为 mygithub
