@@ -3,7 +3,8 @@
 在 Windows 下配置多个 git 账号的教程
 本文主要的目的是记录下 window 系统下配置多个 git 账号的过程，一是可以加深记忆，二是提供给更多需要的人（当然也参考了前辈的教程）。
 
-1.生成并部署 SSH key
+### 1.生成并部署 SSH key
+
 安装好 Git 客户端之后，打开 git bash,输入以下命令生成 user1 的 ssh key
 ssh-keygen -t rsa -C "user1@email.com"；
 
@@ -26,7 +27,7 @@ ssh -T git@github.com -i ~/.ssh/id_rsa2
 ssh-agent bash
 ssh-add ~/.ssh/id_rsa2
 
-2.配置 config 文件
+### 2.配置 config 文件
 
 在.ssh 目录下创建一个 config 文本文件，每个账号配置一个 Host 节点。主要配置项说明：
 Host 　　主机别名
@@ -61,7 +62,7 @@ User veriazzzz
 ssh -T git@veriazzzz
 ssh -T git@yindi.zeng
 
-3.配置用户和邮箱
+### 3.配置用户和邮箱
 
 如果之前配置过全局的用户名和邮箱，需要取消相关配置，再在各仓库下配置相应的用户名和邮箱。
 git config --global --unset user.name
