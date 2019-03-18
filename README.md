@@ -61,14 +61,20 @@ User veriazzzz
 </pre>
 
 再通过终端测试 SSH Key 是否生效
+
+<pre>
 ssh -T git@veriazzzz
 ssh -T git@yindi.zeng
+</pre>
 
 ### 3.配置用户和邮箱
 
 如果之前配置过全局的用户名和邮箱，需要取消相关配置，再在各仓库下配置相应的用户名和邮箱。
+
+<pre>
 git config --global --unset user.name
 git config --global --unset user.email
+</pre>
 
 为各仓库单独配置用户名和邮箱
 
