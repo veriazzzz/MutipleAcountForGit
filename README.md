@@ -42,17 +42,17 @@ git clone git@mygithub:PopFisher/AndroidRotateAnim.git
 
 配置文件如下：
 
+<pre>
 ######## #yindi.zeng
-
 Host yindi.zeng
 HostName git.tools.pjbest.com
 IdentityFile D:\\Users\\yindi.zeng\\.ssh\\id_rsa
 PreferredAuthentications publickey
 User yindi.zeng
+</pre>
 
 <pre>
 ######## #veriazzzz
-
 Host veriazzzz
 HostName github.com
 IdentityFile D:\\Users\\yindi.zeng\\.ssh\\id_rsa2
@@ -71,10 +71,15 @@ git config --global --unset user.name
 git config --global --unset user.email
 
 为各仓库单独配置用户名和邮箱
+
+<pre>
 git config veriazzzz.name "user1"
 git config veriazzzz.email "user1@email.com"
+</pre>
 
 如果原先使用 HTTPS 通信，则需要修改远程仓库地址(自己的仓库可以用 ssh 和 https，如果是拉别人仓库，需要改成 https)
 
+<pre>
 git remote rm origin
 git remote add origin git@veriazzzz:veriazzzz/xxxxx.git
+</pre>
