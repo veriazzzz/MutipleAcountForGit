@@ -50,6 +50,7 @@ IdentityFile D:\\Users\\yindi.zeng\\.ssh\\id_rsa
 PreferredAuthentications publickey
 User yindi.zeng
 
+<pre>
 ######## #veriazzzz
 
 Host veriazzzz
@@ -57,6 +58,7 @@ HostName github.com
 IdentityFile D:\\Users\\yindi.zeng\\.ssh\\id_rsa2
 PreferredAuthentications publickey
 User veriazzzz
+</pre>
 
 再通过终端测试 SSH Key 是否生效
 ssh -T git@veriazzzz
