@@ -14,7 +14,7 @@
 <pre>ssh -T git@github.com</pre>
 
 若连接成功则提示 <pre>Hi user1! You've successfully authenticated, but GitHub does not provide shell access.</pre>
-注意:该命令仅限于文件名为 id_rsa 的密钥。
+<注意:该命令仅限于文件名为 id_rsa 的密钥。
 
 接着生成 user2 的密钥，此处不能再使用 id_rsa 的文件名，否则会覆盖之前的密钥文件。
 
@@ -28,8 +28,7 @@
 
 也可以使用 ssh agent 添加密钥后进行测试。因为系统默认只读取 id_rsa，为了让 ssh 识别新的私钥，可以使用 ssh-agent 手动添加私钥：
 
-<pre> 
-ssh-agent bash
+<pre>ssh-agent bash
 ssh-add ~/.ssh/id_rsa2
 </pre>
 
